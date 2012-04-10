@@ -10,7 +10,7 @@ module SimpleCalendar
 
     def start_date(date)
       start_date = date.beginning_of_month
-      start_date.beginning_of_week.advance(:days => -1) unless start_date.sunday?
+      start_date.sunday? ? start_date : start_date.beginning_of_week.advance(:days => -1)
     end
 
     def end_date(date)
